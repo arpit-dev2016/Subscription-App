@@ -1,0 +1,52 @@
+<!-- Purchase Button -->
+<div class="text-end mb-3">
+  <%= button_to "#", class: "btn btn-primary", id: "purchase-subscription-btn", method: :get do %>
+    <i class="fas fa-credit-card"></i> Purchase Subscription
+  <% end %>
+</div>
+
+<!-- Subscription Card (Initially Hidden) -->
+<div id="subscription-card" style="display: none;">
+  <div class="card shadow p-3 mb-4 bg-white rounded">
+    <div class="card-body">
+      <h5 class="card-title">Choose Your Subscription</h5>
+
+      <form>
+        <div class="form-group mb-2">
+          <label for="plan">Plan</label>
+          <select class="form-control" id="plan">
+            <option value="basic">Basic - $9.99/month</option>
+            <option value="pro">Pro - $19.99/month</option>
+            <option value="enterprise">Enterprise - $49.99/month</option>
+          </select>
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="duration">Duration</label>
+          <select class="form-control" id="duration">
+            <option value="1">1 Month</option>
+            <option value="3">3 Months</option>
+            <option value="12">12 Months</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-2">
+          <i class="fas fa-check"></i> Confirm Purchase
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Inline JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var button = document.getElementById("purchase-subscription-btn");
+    var card = document.getElementById("subscription-card");
+
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      card.style.display = (card.style.display === "none") ? "block" : "none";
+    });
+  });
+</script>
